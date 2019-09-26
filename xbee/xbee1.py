@@ -45,7 +45,7 @@ def main():
 
         print("Success")
 
-        input()
+        input("Press any key to quit...\n")
 
     finally:
         if device is not None and device.is_open():
