@@ -5,7 +5,8 @@ PORT = "COM24"
 # TODO: Replace with the baud rate of your local module.
 BAUD_RATE = 9600
 
-DATA_TO_SEND = "Hello XBee!"
+# DATA_TO_SEND = "quit"
+DATA_TO_SEND = "Hello XBee!\r\n"
 
 # REMOTE_NODE_ID = "Proto2"  # AVR
 REMOTE_NODE_ID = "ProtoX4"  # X4
@@ -41,7 +42,7 @@ def main():
 
         print("Sending data to {} >> {}...".format(remote_device.get_64bit_addr(), DATA_TO_SEND))
 
-        device.send_data(remote_device, DATA_TO_SEND + '\r\n')
+        device.send_data(remote_device, DATA_TO_SEND)
 
         print("Success")
 
