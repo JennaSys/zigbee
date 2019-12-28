@@ -11,11 +11,11 @@ try:
     sd.setblocking(0) 
 
     #UDP communication over ethernet
-    UDP_IP = "192.168.1.40"
+    UDP_IP = "192.168.1.48"  # UDP server
     UDP_PORT = 5555
     udp_sock = socket(AF_INET, SOCK_DGRAM)
     # udp_sock.bind(('', 55555))
-    udp_sock.bind(('', 0))
+    udp_sock.bind(('', 0))  # Let system get available UDP port
     udp_sock.setblocking(0) 
 
 
@@ -42,7 +42,7 @@ try:
                 payload, src_addr = sd.recvfrom(72)
                 print "Received '%s' from %s" % (payload, src_addr[0][1:-2])
                 # If the packet was "quit", then quit:
-                if payload == "quit": 
+                if payload == "quit":
                     raise Exception, "quit received"
             if sock is udp_sock:
                 data, addr = udp_sock.recvfrom(1024)
